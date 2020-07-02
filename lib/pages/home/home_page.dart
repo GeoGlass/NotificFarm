@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_sus/models/notificacao.dart';
 import 'package:form_sus/pages/home/open_registro.dart';
+import 'package:form_sus/services/fb_notification_handler.dart';
 import 'package:form_sus/services/fb_repository.dart';
 import 'package:form_sus/theme/colors.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final FirebaseRepository repository = FirebaseRepository();
+    FirebaseNotifications().setUpFirebase();
     return Scaffold(
       appBar: AppBar(
         title: Text("Notificações"),

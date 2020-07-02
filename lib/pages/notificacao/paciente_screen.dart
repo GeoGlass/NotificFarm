@@ -92,8 +92,14 @@ class _PacienteScreenState extends State<PacienteScreen> {
                       controller: dataProv.paEmailCtrl,
                       labelText: "E-mail: *",
                       textInputType: TextInputType.emailAddress,
-                      validator: (value) =>
-                          (value.isEmpty) ? "Informe o um E-mail" : null,
+                      validator: (value) {
+                        bool emailValid = RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value);
+                        if (value.isEmpty) {
+                          return 'Informe o E-mail';
+                        } else if (!emailValid) return 'E-mail inválido';
+                      },
                     ),
                     RadioContainer(
                       title:

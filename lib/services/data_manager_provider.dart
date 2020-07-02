@@ -78,8 +78,8 @@ class DataProvider with ChangeNotifier {
 
 //*************************************** EventoAdversoScreen ***************************************//
   final TextEditingController _eaDescCtrl = TextEditingController();
+  final TextEditingController _eaDataInicioCtrl = TextEditingController();
   final TextEditingController _eaTempoUsoProdutoCtrl = TextEditingController();
-  String _dataInicio;
 
   Map<String, bool> _manifest = {
     'Vômito': false,
@@ -98,9 +98,9 @@ class DataProvider with ChangeNotifier {
   String _consumiuAlimentoComMedicamentoRadioGroupValue;
 
   TextEditingController get eaDescCtrl => _eaDescCtrl;
+  TextEditingController get eadataInicioCtrl => _eaDataInicioCtrl;
   TextEditingController get eaTempoUsoProdutoCtrl => _eaTempoUsoProdutoCtrl;
 
-  String get getEADataInicioSint => _dataInicio;
   Map<String, bool> get getMandifests => _manifest;
   String get getTempoConsumoAlimentoGroup =>
       _tempoConsumoAlimentoRadioGroupValue;
@@ -119,18 +119,11 @@ class DataProvider with ChangeNotifier {
     return temp;
   }
 
-  set setEADataInicioSint(String val) {
-    _dataInicio = val;
-    notifyListeners();
-  }
-
   set updateManifestCkeckbox(String key) {
     _manifest.update(key, (value) => !value);
     print(_manifest);
     notifyListeners();
   }
-
-  //criar funcao para criar uma lista dos valores check do map
 
   set setTempoConsumoAlimentoValue(String val) {
     _tempoConsumoAlimentoRadioGroupValue = val;
@@ -152,29 +145,27 @@ class DataProvider with ChangeNotifier {
   final TextEditingController _psMarcaCtrl = TextEditingController();
   final TextEditingController _psNomeEmpresaCtrl = TextEditingController();
   final TextEditingController _psCnpjCtrl = TextEditingController();
+  final TextEditingController _psDataFabCtrl = TextEditingController();
   final TextEditingController _psNumLoteCtrl = TextEditingController();
+  final TextEditingController _psDataValidadeCtrl = TextEditingController();
+  final TextEditingController _psDataCompraProdCtrl = TextEditingController();
 
   String _formaApresProdEmb;
   String _origemProd;
   String _numRegRotulo;
 
-  String _dataFab;
-  String _dataValidade;
-  String _dataCompraProd;
-
   TextEditingController get psNomeComercialCtrl => _psNomeComercialCtrl;
   TextEditingController get psMarcaCtrl => _psMarcaCtrl;
   TextEditingController get psNomeEmpresaCtrl => _psNomeEmpresaCtrl;
   TextEditingController get psCnpjCtrl => _psCnpjCtrl;
+  TextEditingController get psDataFabCtrl => _psDataFabCtrl;
   TextEditingController get psNumLoteCtrl => _psNumLoteCtrl;
+  TextEditingController get psDataValidadeCtrl => _psDataValidadeCtrl;
+  TextEditingController get psDataCompraProdCtrl => _psDataCompraProdCtrl;
 
   String get getPSFormaApresProdEmbGroup => _formaApresProdEmb;
   String get getPSOrigemProdGroup => _origemProd;
   String get getPSNumRegRotuloGroup => _numRegRotulo;
-
-  String get getPSDataFab => _dataFab;
-  String get getPSDataValidade => _dataValidade;
-  String get getPSDataCompraProd => _dataCompraProd;
 
   set setPSFormaApresProdEmbValue(String val) {
     _formaApresProdEmb = val;
@@ -188,21 +179,6 @@ class DataProvider with ChangeNotifier {
 
   set setPSNumRegRotuloValue(String val) {
     _numRegRotulo = val;
-    notifyListeners();
-  }
-
-  set setPSDataFabValue(String val) {
-    _dataFab = val;
-    notifyListeners();
-  }
-
-  set setPSDataValidadeValue(String val) {
-    _dataValidade = val;
-    notifyListeners();
-  }
-
-  set setPSDataCompraProdValue(String val) {
-    _dataCompraProd = val;
     notifyListeners();
   }
 

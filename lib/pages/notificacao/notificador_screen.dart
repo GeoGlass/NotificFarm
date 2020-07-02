@@ -18,7 +18,7 @@ class NotificadorScreen extends StatefulWidget {
 }
 
 class _NotificadorScreenState extends State<NotificadorScreen> {
-  final GlobalKey<FormState> _notcdorFormKey = GlobalKey<FormState>();  
+  final GlobalKey<FormState> _notcdorFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +88,14 @@ class _NotificadorScreenState extends State<NotificadorScreen> {
                       controller: dataProv.emailCtrl,
                       labelText: "E-mail: *",
                       textInputType: TextInputType.emailAddress,
-                      validator: (value) =>
-                          (value.isEmpty) ? "Informe um e-mail valido" : null,
+                      validator: (value) {
+                        bool emailValid = RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value);
+                        if (value.isEmpty) {
+                          return 'Informe o E-mail';
+                        } else if (!emailValid) return 'E-mail inválido';
+                      },
                     ),
                     RadioContainer(
                       title: 'Categoria do Notificador: *',

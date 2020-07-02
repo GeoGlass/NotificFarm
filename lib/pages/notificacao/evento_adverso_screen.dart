@@ -16,7 +16,7 @@ class EventoAdversoScreen extends StatefulWidget {
 }
 
 class _EventoAdversoScreenState extends State<EventoAdversoScreen> {
-  final GlobalKey<FormState> _eaFormKey = GlobalKey<FormState>();  
+  final GlobalKey<FormState> _eaFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +47,23 @@ class _EventoAdversoScreenState extends State<EventoAdversoScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6.0),
-                      child: RaisedButton(
-                        color: kPrimary1,
-                        child: Text("Data de Inicio dos Sintomas: ${dataProv.getEADataInicioSint ?? ''} *" ,
-                          style: TextStyle(color: _whiteColor),
-                        ),
-                        onPressed: () async {
+                      child: CustomTextFormField(
+                        controller: dataProv.eadataInicioCtrl,
+                        labelText: 'Data de Inicio dos Sintomas: *',
+                        validator: (value) => (value.isEmpty)
+                            ? "Informe data de inicio dos sintomas "
+                            : null,
+                        maxLength: 10,
+                        readOnly: true,
+                        onTap: () async {
                           final DateTime picked = await showDatePicker(
                               context: context,
                               initialDate: DateTime.now(),
                               firstDate: DateTime(2020, 1),
                               lastDate: DateTime(2101));
-                          if (picked != null ) {
-                            dataProv.setEADataInicioSint = "${picked.day}/${picked.month}/${picked.year}";                            
+                          if (picked != null) {
+                            dataProv.eadataInicioCtrl.text =
+                                "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
                           }
                         },
                       ),
@@ -136,14 +140,7 @@ class _EventoAdversoScreenState extends State<EventoAdversoScreen> {
 
   void _validate({PageProvider pageProv, DataProvider dataProv}) {
     if (_eaFormKey.currentState.validate()) {
-      if (dataProv.getEADataInicioSint == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe a data de inicio dos sintomas",
-              textAlign: TextAlign.center,
-            )));
-      } else if (dataProv.getCheckedManifest.isEmpty) {
+      if (dataProv.getCheckedManifest.isEmpty) {
         Scaffold.of(context).showSnackBar(SnackBar(
             duration: Duration(milliseconds: 2000),
             content: Text(
@@ -167,7 +164,7 @@ class _EventoAdversoScreenState extends State<EventoAdversoScreen> {
       } else {
         pageProv.saveData({
           'eaDescDetalhada': dataProv.eaDescCtrl.text,
-          'eaDataInicioSintomas': dataProv.getEADataInicioSint,
+          'eaDataInicioSintomas': dataProv.eadataInicioCtrl.text,
           'eaCheckedManifests': dataProv.getCheckedManifest,
           'eaTempoConsumoAlimento': dataProv.getTempoConsumoAlimentoGroup,
           'eaTempoUsoProduto': dataProv.eaTempoUsoProdutoCtrl.text,

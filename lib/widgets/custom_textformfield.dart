@@ -10,9 +10,19 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType textInputType;
   final List<TextInputFormatter> textInputFormatter;
   final int maxLength;
+  final bool showCursor;
+  final bool readOnly;
   const CustomTextFormField(
       {Key key,
-      this.labelText, this.controller, this.validator, this.textInputType, this.maxLength, this.textInputFormatter, this.onTap})
+      this.labelText,
+      this.controller,
+      this.validator,
+      this.textInputType,
+      this.textInputFormatter,
+      this.maxLength,
+      this.showCursor,
+      this.readOnly = false,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -25,9 +35,11 @@ class CustomTextFormField extends StatelessWidget {
         keyboardType: textInputType,
         inputFormatters: textInputFormatter,
         cursorColor: kPrimary1,
-        validator: validator ?? ()=>"",
+        validator: validator ?? null,
         maxLength: maxLength,
         onTap: onTap ?? null,
+        showCursor: showCursor,
+        readOnly: readOnly,
         decoration: InputDecoration(
           counterText: "",
           contentPadding: const EdgeInsets.all(12),
