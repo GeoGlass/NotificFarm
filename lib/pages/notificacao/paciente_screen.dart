@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:form_sus/services/page_manager_provider.dart';
 import 'package:form_sus/services/data_manager_provider.dart';
 import 'package:form_sus/theme/colors.dart';
@@ -46,13 +47,20 @@ class _PacienteScreenState extends State<PacienteScreen> {
                           (value.isEmpty) ? "Informe o nome ou iniciais" : null,
                     ),
                     CustomTextFormField(
-                      controller: dataProv.paIdadeCtrl,
-                      labelText: " Idade do Paciente/Usuário: * ",
-                      textInputType: TextInputType.number,
-                      maxLength: 2,
-                      validator: (value) =>
-                          (value.isEmpty) ? "Informe a idade" : null,
-                    ),
+                        controller: dataProv.paIdadeCtrl,
+                        labelText: "Idade do Paciente/Usuário: * ",
+                        textInputType: TextInputType.number,
+                        maxLength: 3,
+                        textInputFormatter: [
+                          WhitelistingTextInputFormatter.digitsOnly
+                        ],
+                        validator: (value) {
+                          print(int.parse(value) is int);
+                          if (value.isEmpty) {
+                            return 'Informe a idade';
+                          } else if (int.parse(value) is! int)
+                            return 'Formato inválido';
+                        }),
                     RadioContainer(
                       title: 'Sexo: *',
                       radiosList: [

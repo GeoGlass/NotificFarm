@@ -83,13 +83,17 @@ class _ProdutoSuspeitoScreenState extends State<ProdutoSuspeitoScreen> {
                       },
                     ),
                     CustomTextFormField(
-                        controller: dataProv.psCnpjCtrl,
-                        labelText: "Número do CNPJ da empresa fabricante:",
-                        textInputType: TextInputType.number,
-                        textInputFormatter: [
-                          MaskedInputFormater('00.000.000/0000-00')
-                        ],
-                        validator: (value) => null),
+                      controller: dataProv.psCnpjCtrl,
+                      labelText: "Número do CNPJ da empresa fabricante:",
+                      textInputType: TextInputType.number,
+                      textInputFormatter: [
+                        MaskedInputFormater('00.000.000/0000-00')
+                      ],
+                      validator: (value) =>
+                          (value.length >= 1 && value.length < 18)
+                              ? "CNPJ incompleto"
+                              : null,
+                    ),
                     RadioContainer(
                       title: 'Consta o número do Registro/MS no rótulo?',
                       radiosList: [

@@ -31,11 +31,11 @@ class PageProvider with ChangeNotifier {
 
   SnackBar pageSnackbar(String title) {
     return SnackBar(
-        duration: Duration(milliseconds: 3000),
+        //duration: Duration(milliseconds: 3000),
         content: Text(
-          title,
-          textAlign: TextAlign.center,
-        ));
+      title,
+      textAlign: TextAlign.center,
+    ));
   }
 
 //*************************************** VARS ***************************************//

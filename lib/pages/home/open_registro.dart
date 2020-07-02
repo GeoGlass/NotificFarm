@@ -70,8 +70,7 @@ class OpenRegistro extends StatelessWidget {
                 ),
               ),
               CustomContainer(
-                title:
-                    'Identificação do Paciente/Usuário que sofreu o evento adverso',
+                title: 'Ident. do Paciente/Usuário que sofreu o evento adverso',
                 subtitle: 'Identificação do paciente',
                 color: _whiteColor,
                 child: Column(
@@ -132,9 +131,10 @@ class OpenRegistro extends StatelessWidget {
                       data: notificacaom.eaDataInicioSintomas,
                     ),
                     CustomText(
-                      title: 'Manifestações Clínicas associadas ao evento adverso: ',
+                      title:
+                          'Manifestações Clínicas associadas ao evento adverso: ',
                       data: notificacaom.eaCheckedManifests.toString(),
-                    ),                    
+                    ),
                     CustomText(
                       title:
                           'Tempo entre o consumo do alimento e o aparecimento do evento adverso: ',
@@ -186,30 +186,27 @@ class OpenRegistro extends StatelessWidget {
                     CustomText(
                       title: 'Número do CNPJ da empresa fabricante: ',
                       data: notificacaom.psCNPJempresaFab,
-                    ),                 
+                    ),
                     CustomText(
                       title: 'Número do Registro/MS no rótulo: ',
                       data: notificacaom.psNumRegRotulo,
-                    ),   
+                    ),
                     CustomText(
                       title: 'Data de Fabricação: ',
                       data: notificacaom.psDataFab,
-                    ),   
+                    ),
                     CustomText(
                       title: 'Número do Lote: ',
                       data: notificacaom.psNumLote.toString(),
-                    ),   
+                    ),
                     CustomText(
                       title: 'Data da Validade: ',
                       data: notificacaom.psDataValidade,
-                    ),   
+                    ),
                     CustomText(
                       title: 'Data da Compra do Produto: ',
                       data: notificacaom.psDataCompraProd,
-                    ),   
-                   
-                 
-                    
+                    ),
                   ],
                 ),
               ),
@@ -229,24 +226,25 @@ class OpenRegistro extends StatelessWidget {
                       data: notificacaom.iaProdApresAlteracao,
                     ),
                     CustomText(
-                      title: 'Comunicação à empresa fabricante ou importadora: ',
+                      title:
+                          'Comunicação à empresa fabricante ou importadora: ',
                       data: notificacaom.iaHouveComunicEmp,
                     ),
                     CustomText(
-                      title: 'Evento adverso foi comunicado ao órgão de Vigilância Sanitária ou Vigilância Epidemiológica local: ',
+                      title:
+                          'Evento adverso foi comunicado ao órgão de Vigilância Sanitária ou Vigilância Epidemiológica local: ',
                       data: notificacaom.iaEventAdvComunicVigil,
-                    ),                   
+                    ),
                     CustomText(
-                      title: 'Existe amostras íntegras para a coleta e que podem ser entregues à Vigilância Sanitária: ',
+                      title:
+                          'Existe amostras íntegras para a coleta e que podem ser entregues à Vigilância Sanitária: ',
                       data: notificacaom.iaExistAmostrasInteg,
-                    ),                   
+                    ),
                     CustomText(
-                      title: 'O paciente/usuário recebeu atendimento em serviço de saúde: ',
+                      title:
+                          'O paciente/usuário recebeu atendimento em serviço de saúde: ',
                       data: notificacaom.iaPcteRecebAtend,
-                    ),                   
-                  
-                   
-                  
+                    ),
                   ],
                 ),
               ),
