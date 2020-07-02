@@ -141,26 +141,14 @@ class _EventoAdversoScreenState extends State<EventoAdversoScreen> {
   void _validate({PageProvider pageProv, DataProvider dataProv}) {
     if (_eaFormKey.currentState.validate()) {
       if (dataProv.getCheckedManifest.isEmpty) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Selecione ao menos uma Manifestação Clínica",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context).showSnackBar(pageProv
+            .pageSnackbar('Selecione ao menos uma Manifestação Clínica'));
       } else if (dataProv.getTempoConsumoAlimentoGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe o tempo entre o consumo do alimento e o aparecimento do evento adverso",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context).showSnackBar(pageProv.pageSnackbar(
+            'Informe o tempo entre o consumo do alimento e o aparecimento do evento adverso'));
       } else if (dataProv.getSuspensaoConsumoProdutoGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe se houve suspensão do consumo do produto",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context).showSnackBar(pageProv
+            .pageSnackbar('Informe se houve suspensão do consumo do produto'));
       } else {
         pageProv.saveData({
           'eaDescDetalhada': dataProv.eaDescCtrl.text,

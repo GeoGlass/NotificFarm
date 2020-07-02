@@ -8,7 +8,6 @@ import 'package:form_sus/pages/notificacao/paciente_screen.dart';
 import 'package:form_sus/pages/notificacao/produto_suspeito_screen.dart';
 import 'package:form_sus/services/fb_repository.dart';
 
-
 enum MyPage {
   NOTIFICADOR,
   NOTIFICACAO,
@@ -28,6 +27,15 @@ class PageProvider with ChangeNotifier {
       initialPage: _page.index,
       keepPage: true,
     );
+  }
+
+  SnackBar pageSnackbar(String title) {
+    return SnackBar(
+        duration: Duration(milliseconds: 3000),
+        content: Text(
+          title,
+          textAlign: TextAlign.center,
+        ));
   }
 
 //*************************************** VARS ***************************************//

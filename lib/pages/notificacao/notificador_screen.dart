@@ -126,7 +126,7 @@ class _NotificadorScreenState extends State<NotificadorScreen> {
                   style: TextStyle(color: _whiteColor),
                 ),
                 onPressed: () {
-                  _validate(pageProvider: pageProv, dataProv: dataProv);
+                  _validate(pageProv: pageProv, dataProv: dataProv);
                 },
               ),
             ),
@@ -136,24 +136,16 @@ class _NotificadorScreenState extends State<NotificadorScreen> {
     );
   }
 
-  void _validate({PageProvider pageProvider, DataProvider dataProv}) {
+  void _validate({PageProvider pageProv, DataProvider dataProv}) {
     if (_notcdorFormKey.currentState.validate()) {
       if (dataProv.getUfValue == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe a UF",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context)
+            .showSnackBar(pageProv.pageSnackbar('Informe a UF'));
       } else if (dataProv.getCategoriaGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 1500),
-            content: Text(
-              "Informe a categoria do notificador",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context).showSnackBar(
+            pageProv.pageSnackbar('Informe a categoria do notificador'));
       } else {
-        pageProvider.saveData({
+        pageProv.saveData({
           'nome': dataProv.nomeCtrl.text,
           'cidade': dataProv.cityCtrl.text,
           'uf': dataProv.getUfValue,
@@ -161,7 +153,7 @@ class _NotificadorScreenState extends State<NotificadorScreen> {
           'email': dataProv.emailCtrl.text.toLowerCase().trim(),
           'categoria': dataProv.getCategoriaGroup
         });
-        pageProvider.nextPage();
+        pageProv.nextPage();
       }
     }
   }

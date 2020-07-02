@@ -156,26 +156,14 @@ class _PacienteScreenState extends State<PacienteScreen> {
   void _validate({PageProvider pageProv, DataProvider dataProv}) {
     if (_formKey.currentState.validate()) {
       if (dataProv.getSexoGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe o campo Sexo",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context)
+            .showSnackBar(pageProv.pageSnackbar('Informe o campo Sexo'));
       } else if (dataProv.getDoencaGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe se existe doenças concomitantes",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context).showSnackBar(
+            pageProv.pageSnackbar('Informe se existe doenças concomitantes'));
       } else if (dataProv.getDesfechoGroup == null) {
-        Scaffold.of(context).showSnackBar(SnackBar(
-            duration: Duration(milliseconds: 2000),
-            content: Text(
-              "Informe um desfecho",
-              textAlign: TextAlign.center,
-            )));
+        Scaffold.of(context)
+            .showSnackBar(pageProv.pageSnackbar('Informe um desfecho'));
       } else {
         pageProv.saveData({
           'paNome': dataProv.paNomeCtrl.text,

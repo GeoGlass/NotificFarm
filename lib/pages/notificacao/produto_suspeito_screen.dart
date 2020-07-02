@@ -121,27 +121,6 @@ class _ProdutoSuspeitoScreenState extends State<ProdutoSuspeitoScreen> {
                         },
                       ),
                     ),
-                    /* Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0),
-                      child: RaisedButton(
-                        color: kPrimary1,
-                        child: Text(
-                          "Data de Fabricação: ${dataProv.getPSDataFab ?? ''}",
-                          style: TextStyle(color: _whiteColor),
-                        ),
-                        onPressed: () async {
-                          final DateTime picked = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2020, 1),
-                              lastDate: DateTime(2101));
-                          if (picked != null) {
-                            dataProv.setPSDataFabValue =
-                                "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
-                          }
-                        },
-                      ),
-                    ), */
                     CustomTextFormField(
                       controller: dataProv.psNumLoteCtrl,
                       labelText: "Número do Lote: *",
@@ -171,27 +150,6 @@ class _ProdutoSuspeitoScreenState extends State<ProdutoSuspeitoScreen> {
                         },
                       ),
                     ),
-                    /* Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0),
-                      child: RaisedButton(
-                        color: kPrimary1,
-                        child: Text(
-                          "Data da Validade: ${dataProv.getPSDataValidade ?? ''} *",
-                          style: TextStyle(color: _whiteColor),
-                        ),
-                        onPressed: () async {
-                          final DateTime picked = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2020, 1),
-                              lastDate: DateTime(2101));
-                          if (picked != null) {
-                            dataProv.setPSDataValidadeValue =
-                                "${picked.day}/${picked.month}/${picked.year}";
-                          }
-                        },
-                      ),
-                    ), */
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6.0),
                       child: CustomTextFormField(
@@ -212,27 +170,6 @@ class _ProdutoSuspeitoScreenState extends State<ProdutoSuspeitoScreen> {
                         },
                       ),
                     ),
-                    /* Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0),
-                      child: RaisedButton(
-                        color: kPrimary1,
-                        child: Text(
-                          "",
-                          style: TextStyle(color: _whiteColor),
-                        ),
-                        onPressed: () async {
-                          final DateTime picked = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2020, 1),
-                              lastDate: DateTime(2101));
-                          if (picked != null) {
-                            dataProv.setPSDataCompraProdValue =
-                                "${picked.day}/${picked.month}/${picked.year}";
-                          }
-                        },
-                      ),
-                    ), */
                   ],
                 ),
               ),
@@ -278,16 +215,6 @@ class _ProdutoSuspeitoScreenState extends State<ProdutoSuspeitoScreen> {
         'psDataCompraProd': dataProv.psDataCompraProdCtrl.text,
       });
       pageProv.nextPage();
-      /* pageProv.registerNotificacao(onSuccess: () {
-          Navigator.pop(context);
-        }, onFail: () {
-          Scaffold.of(context).showSnackBar(SnackBar(
-              duration: Duration(milliseconds: 1500),
-              content: Text(
-                "Falha ao registar notificação. Tente novamente.",
-                textAlign: TextAlign.center,
-              )));
-        }); */
     }
   }
 }

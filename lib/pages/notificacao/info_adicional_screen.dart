@@ -15,7 +15,6 @@ class InfoAdicionalScreen extends StatefulWidget {
 }
 
 class _InfoAdicionalScreenState extends State<InfoAdicionalScreen> {
-  
   @override
   Widget build(BuildContext context) {
     print("InfoAdicionalScreen render");
@@ -139,12 +138,8 @@ class _InfoAdicionalScreenState extends State<InfoAdicionalScreen> {
     pageProv.registerNotificacao(onSuccess: () {
       Navigator.pop(context);
     }, onFail: () {
-      Scaffold.of(context).showSnackBar(SnackBar(
-          duration: Duration(milliseconds: 2000),
-          content: Text(
-            "Falha ao registar notificação. Tente novamente.",
-            textAlign: TextAlign.center,
-          )));
+      Scaffold.of(context).showSnackBar(pageProv
+          .pageSnackbar('Falha ao registar notificação. Tente novamente.'));
     });
   }
 }
