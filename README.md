@@ -8,7 +8,7 @@ telas foi utilizado o Provider ![Provider](https://pub.dev/packages/provider).
 ## Como funciona
 
 Ao abrir o aplicativo é apresentado uma splash screen antes de terminar a inicialização. A tela principal mostra um lista de todas as notificações armazenadas no Firestore. 
-
+![simple](screenshot/Abertura.gif)
 
 Ao clicar no botão '+' o usuário é direcionado a uma nova tela para o preenchimento do formulário. Os campos com <*> são abrigatórios.
 
