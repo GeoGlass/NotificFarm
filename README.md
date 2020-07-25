@@ -1,16 +1,17 @@
-# form_sus
+# Introdução
 
-A new Flutter project.
+Este app foi desenvolvido a partir de um formulário ![formulário](http://formsus.datasus.gov.br/site/formulario.php?id_aplicacao=31480) solicitado por uma universitária do curso de Farmácia.  
 
-## Getting Started
+O aplicativo foi desenvolvido com o framework Flutter e Firebase Cloud Firestore como backend. Para o gerenciamento de estados dos dados e 
+telas foi utilizado o Provider ![Provider](https://pub.dev/packages/provider).
 
-This project is a starting point for a Flutter application.
+## Como funciona
 
-A few resources to get you started if this is your first Flutter project:
+Ao abrir o aplicativo é apresentado uma splash screen antes de terminar a inicialização. A tela principal mostra um lista de todas as notificações armazenadas no Firestore. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ao clicar no botão '+' o usuário é direcionado a uma nova tela para o preenchimento do formulário. Os campos com <*> são abrigatórios.
+
+
+
+

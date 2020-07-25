@@ -47,42 +47,6 @@ class HomePage extends StatelessWidget {
                           fontStyle: FontStyle.italic),
                     ),
                   ]);
-              /* showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                  ),
-                  title: Text(
-                    "Desenvolvido por: ",
-                    style: TextStyle(color: kPrimary1),
-                  ),
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text("George V. Glass Machado",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text(
-                        "E-mail: geo.glass@hotmail.com",
-                        style: TextStyle(
-                            color: kPrimary2,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic),
-                      ),
-                      Text(
-                        "Tel: 77 9 9858-9856",
-                        style: TextStyle(
-                            color: kPrimary2,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic),
-                      ),
-                    ],
-                  ),
-                ),
-              ); */
             },
           )
         ],
@@ -156,7 +120,10 @@ class HomePage extends StatelessWidget {
                           );
                         }).toList(),
                       )
-                    : Text("Sem registro de notificação.");
+                    : Text(
+                        "Sem registro de notificação",
+                        style: TextStyle(fontSize: 26.0),
+                      );
             }
           },
         ),
