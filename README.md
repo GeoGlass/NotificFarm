@@ -2,7 +2,7 @@
 
 Este app foi desenvolvido a partir de um [formulário](http://formsus.datasus.gov.br/site/formulario.php?id_aplicacao=31480) solicitado por uma universitária do curso de Farmácia.  
 
-O aplicativo foi desenvolvido com o framework Flutter e Firebase Cloud Firestore como backend. Para o gerenciamento de estados dos dados e 
+O aplicativo foi desenvolvido com o framework Flutter e Firebase Cloud Firestore como backend. Para o gerenciamento dos dados e 
 telas foi utilizado o [Provider](https://pub.dev/packages/provider).
 
 ## Como funciona
